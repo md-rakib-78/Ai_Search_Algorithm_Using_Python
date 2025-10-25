@@ -47,7 +47,7 @@ def UCS(graph,st,en):
 
 
 graph=[]
-with open("rtp.txt", "r") as file:
+with open("Matrix For UCS.txt", "r") as file:
     for line in file:
         row=list(map(int, line.strip().split()))
         graph.append(row)
