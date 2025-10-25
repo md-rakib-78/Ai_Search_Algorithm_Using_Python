@@ -9,7 +9,8 @@ def pathFind(i, j):
         pathFind(i, prev[j])
         print(j, end=" ")
 
-def DLS(graph, curr, goal, limit, depth, n):
+def DFS(graph, curr, goal, limit, depth, n):
+    print(curr," ", end="")
     if curr == goal:
         return True
 
@@ -20,7 +21,7 @@ def DLS(graph, curr, goal, limit, depth, n):
     for v in range(n):
         if graph[curr][v] == 1 and visit[v] == "w":
             prev[v] = curr
-            if DLS(graph, v, goal, limit, depth + 1, n):
+            if DFS(graph, v, goal, limit, depth + 1, n):
                 return True
     visit[curr] = "b"
     return False
@@ -31,14 +32,18 @@ def IDS(graph, st, en, max_limit):
         global prev, visit
         prev = [-1] * n
         visit = ["w"] * n
-        print(f"Iterative Depth: {limit}")
-        if DLS(graph, st, en, limit, 0, n):
+        print("Iterative Depth: ",limit)
+        print("DFS: ",end="")
+        if DFS(graph, st, en, limit, 0, n):
+            print()
             print("Goal found!")
+            print()
             print("Path:", end=" ")
             pathFind(st, en)
             print("\n")
             return
         else:
+            print()
             print("Goal not found at this depth.\n")
 
     print("Goal not found in given depth limit.")
