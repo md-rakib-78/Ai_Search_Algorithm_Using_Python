@@ -45,7 +45,7 @@ def IDS(graph, st, en, max_limit):
 
 
 matrix = []
-with open("example.txt", "r") as file:
+with open("Tree Matrix.txt", "r") as file:
     for line in file:
         row = list(map(int, line.strip().split()))
         matrix.append(row)
