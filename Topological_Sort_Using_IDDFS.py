@@ -57,12 +57,11 @@ def IDS(graph, st, en, max_limit):
         else:
             print("Goal not found at this depth.\n")
 
-        print("Topological Order:")
+        print("Topological Order: ", end="")
         lst.sort(reverse=True)
         for l in lst:
             print(" ", l[1], end=" ")
         print("\n")
-        print(lst)
 
         if found:
             return
@@ -75,8 +74,15 @@ with open("Direct Graph Matrix.txt", "r") as file:
         row = list(map(int, line.strip().split()))
         matrix.append(row)
 
+print("Direct Graph matrix: ")
+for i in range(0,len(matrix)):
+    for j in range(0,len(matrix[i])):
+        print(matrix[i][j], end=" ")
+    print()
+
+print()
 s = int(input("Enter the Source Node: "))
 e = int(input("Enter the Goal Node: "))
 max_limit = int(input("Enter the Max Depth Limit: "))
-
+print()
 IDS(matrix, s, e, max_limit)
