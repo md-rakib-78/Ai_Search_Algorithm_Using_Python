@@ -3,11 +3,11 @@ visit = []
 
 def pathFind(i, j):
     if i == j:
-        print(j, end=" ")
+        print(j," -> ", end=" ")
         return
     else:
         pathFind(i, prev[j])
-        print(j, end=" ")
+        print(j," -> ", end=" ")
 
 def DFS(graph, curr, goal, limit, depth, n):
     print(curr," ", end="")
@@ -38,7 +38,7 @@ def IDS(graph, st, en, max_limit):
             print()
             print("Goal found!")
             print()
-            print("Path:", end=" ")
+            print("Direct Path From Source to Destination :", end=" ")
             pathFind(st, en)
             print("\n")
             return
@@ -55,6 +55,14 @@ with open("Tree Matrix.txt", "r") as file:
         row = list(map(int, line.strip().split()))
         matrix.append(row)
 
+print()
+print("Enter the Tree matrix: ")
+for i in range(0,len(matrix)):
+    for j in range(0,len(matrix[i])):
+        print(matrix[i][j], end=" ")
+    print()
+
+print()
 s = int(input("Enter the Source Node: "))
 e = int(input("Enter the Goal Node: "))
 max_limit = int(input("Enter the Max Depth Limit: "))
