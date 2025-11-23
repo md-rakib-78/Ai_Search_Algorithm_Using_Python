@@ -33,7 +33,6 @@ def DFS_Visit(graph, curr, n, en, h):
 
     visit[curr] = "b"
 
-    # Expand neighbors
     for v in range(n):
         if visit[v] != "b" and graph[curr][v] != 0:
             prev[v] = curr
@@ -46,6 +45,10 @@ def DFS_Visit(graph, curr, n, en, h):
         return
 
     lst.sort()
+
+    if lst[0][1] == en:
+        print("Cost=", lst[0][0])
+
     print(lst)
     next_node = lst.pop(0)[1]
     print("Curr Node: ",next_node)
@@ -67,11 +70,17 @@ def DFS(graph, st, en, h):
 # Read matrix
 matrix=[]
 
+with open("info search matrix.txt", "r") as file:
+    for line in file:
+        row = list(map(int, line.strip().split()))
+        matrix.append(row)
+
+
 #user Input Matrix
-for i in range(5):
-     mat=[]
-     mat= list(map(int,input().split()))
-     matrix.append(mat)
+#for i in range(5):
+     #mat=[]
+     #mat= list(map(int,input().split()))
+     #matrix.append(mat)
 
 s = int(input("Enter the Source Node: "))
 e = int(input("Enter the Goal Node: "))
