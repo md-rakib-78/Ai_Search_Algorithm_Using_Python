@@ -24,7 +24,7 @@ def checklist(v,fval):
                 return
             else:
                 lst.pop(i)
-                list.append([fval,v])
+                lst.append([fval,v])
                 return
     lst.append([fval, v])
 
@@ -32,6 +32,9 @@ def checklist(v,fval):
 def DFS_Visit(graph, curr, n, en, h):
 
     visit[curr] = "b"
+
+    if en==curr:
+        return
 
     for v in range(n):
         if visit[v] != "b" and graph[curr][v] != 0:
@@ -84,6 +87,6 @@ with open("info search matrix.txt", "r") as file:
 
 s = int(input("Enter the Source Node: "))
 e = int(input("Enter the Goal Node: "))
-h = [2, 4, 1, 1, 0]  # heuristic values
+h = [5,3,3,2,6,3,0] # heuristic values
 print()
 DFS(matrix, s, e, h)
