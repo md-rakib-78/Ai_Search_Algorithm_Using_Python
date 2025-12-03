@@ -87,6 +87,6 @@ with open("info search matrix.txt", "r") as file:
 
 s = int(input("Enter the Source Node: "))
 e = int(input("Enter the Goal Node: "))
-h = [5,3,3,2,6,3,0] # heuristic values
+h = [5,3,3,2,6,3,0]
 print()
 DFS(matrix, s, e, h)
